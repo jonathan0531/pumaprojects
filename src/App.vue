@@ -55,7 +55,7 @@
         </router-link>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar color="orange" dark app>
+    <v-app-bar color="#3257bf" dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title> Lookback Management System </v-toolbar-title>
       <v-spacer></v-spacer>
@@ -69,7 +69,7 @@
         </div>
       </v-container>
     </v-content>
-    <v-footer color="orange" class="footer" app>
+    <v-footer color="#3257bf" class="footer" app>
       <span class="white--text">Copyright &copy; 2020 by Puma Project's</span>
     </v-footer>
   </v-app>
