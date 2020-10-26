@@ -34,42 +34,43 @@
 </template>
 
 <script>
-import axios from "axios";
-import swal from "sweetalert";
+import axios from 'axios';
+import swal from 'sweetalert';
 
 export default {
   data: () => ({
     valid: true,
-    email: "",
-    password: "",
+    email: '',
+    password: '',
     emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) => /\S+@\S+\.\S+/.test(v) || "E-mail must be valid",
+      v => !!v || 'E-mail is required',
+      v => /\S+@\S+\.\S+/.test(v) || 'E-mail must be valid',
     ],
   }),
-  //the submit method hits the API endpoint, takes the parameter from the form, and responds with the correct message.
+  // The submit method hits the API endpoint, takes the
+  // parameter from the form, and responds with the correct message.
   methods: {
     async submit() {
       return axios({
-        method: "post",
+        method: 'post',
         data: {
           email: this.email,
           password: this.password,
         },
-        url: "http://localhost:5000/api/members/login",
+        url: 'http://localhost:5000/api/members/login',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       })
         .then((response) => {
-          window.localStorage.setItem("auth", response.data.token);
-          swal("Login Success!", "You are ready to start!", "success");
-          this.$router.push({ name: "Volcano" });
+          window.localStorage.setItem('auth', response.data.token);
+          swal('Login Success!', 'You are ready to start!', 'success');
+          this.$router.push({ name: 'Volcano' });
         })
         .catch((error) => {
           const message = error.response.data.message;
-          swal("Login Denied", `${message}`, "error");
-          this.$router.push({ name: "Login" });
+          swal('Login Denied', `${message}`, 'error');
+          this.$router.push({ name: 'Login' });
         });
     },
     clear() {

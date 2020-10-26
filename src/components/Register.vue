@@ -56,52 +56,52 @@
 </template>
 
 <script>
-import axios from "axios";
-import swal from "sweetalert";
+import axios from 'axios';
+import swal from 'sweetalert';
 
 export default {
   data: () => ({
     valid: true,
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    nameRules: [(v) => !!v || "Name cannot be left empty"],
-    pwRules: [(v) => !!v || "Password cannot be left empty"],
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    nameRules: [v => !!v || 'Name cannot be left empty'],
+    pwRules: [v => !!v || 'Password cannot be left empty'],
     emailRules: [
-      (v) => !!v || "E-mail cannot be left empty",
-      (v) =>
-        /\S+@\S+\.\S+/.test(v) || "Invalid E-mail format. (EX: user@email.com)",
+      v => !!v || 'E-mail cannot be left empty',
+      v =>
+        /\S+@\S+\.\S+/.test(v) || 'Invalid E-mail format. (EX: user@email.com)',
     ],
   }),
-  //If validations pass, the logic inside the submit method is processed
+  // If validations pass, the logic inside the submit method is processed
   methods: {
     async submit() {
       if (this.$refs.form.validate()) {
         return axios({
-          method: "post",
+          method: 'post',
           data: {
             firstName: this.firstName,
             lastName: this.lastName,
             email: this.email,
             password: this.password,
           },
-          url: "http://localhost:5000/api/members/register",
+          url: 'http://localhost:5000/api/members/register',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         })
           .then(() => {
             swal(
-              "Success!",
-              "You have been successfully registered!",
-              "success"
+              'Success!',
+              'You have been successfully registered!',
+              'success',
             );
-            this.$router.push({ name: "Login" });
+            this.$router.push({ name: 'Login' });
           })
           .catch((error) => {
             const message = error.response.data.message;
-            swal("Something went wrong..", `${message}`, "error");
+            swal('Something went wrong..', `${message}`, 'error');
           });
       }
       return true;
