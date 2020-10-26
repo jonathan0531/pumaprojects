@@ -2,7 +2,7 @@
   <v-app id="inspire">
     <v-navigation-drawer fixed v-model="drawer" app>
       <v-list dense>
-        <router-link v-bind:to="{ name: 'Welcome' }" class="side_bar_link">
+        <router-link v-bind:to="{ name: 'Pending' }" class="side_bar_link">
           <v-list-item>
             <v-list-item-action>
               <v-icon>home</v-icon>
@@ -12,7 +12,7 @@
             >
           </v-list-item>
         </router-link>
-        <router-link v-bind:to="{ name: 'Volcano' }" class="side_bar_link">
+        <router-link v-bind:to="{ name: 'Completed' }" class="side_bar_link">
           <v-list-item>
             <v-list-item-action>
               <v-icon>gavel</v-icon>
@@ -22,7 +22,7 @@
             >
           </v-list-item>
         </router-link>
-        <router-link v-bind:to="{ name: 'Volcano' }" class="side_bar_link">
+        <router-link v-bind:to="{ name: 'Config' }" class="side_bar_link">
           <v-list-item>
             <v-list-item-action>
               <v-icon>gavel</v-icon>
@@ -32,7 +32,20 @@
             >
           </v-list-item>
         </router-link>
-        <router-link v-bind:to="{ name: 'Help' }" class="side_bar_link">
+        <router-link
+          v-bind:to="{ name: 'SearchRecords' }"
+          class="side_bar_link"
+        >
+          <v-list-item>
+            <v-list-item-action>
+              <v-icon>gavel</v-icon>
+            </v-list-item-action>
+            <v-list-item-content class="text"
+              >Search Records</v-list-item-content
+            >
+          </v-list-item>
+        </router-link>
+        <router-link v-bind:to="{ name: 'UserGuide' }" class="side_bar_link">
           <v-list-item>
             <v-list-item-action>
               <v-icon>info</v-icon>
