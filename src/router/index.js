@@ -13,7 +13,7 @@ Vue.use(Router);
 export default new Router({
   routes: [
     {
-      path: '/completed',
+      path: '/',
       name: 'Completed',
       component: Completed,
     },
